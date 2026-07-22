@@ -10,11 +10,11 @@
 <style>
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
 :root{
-  --bg:#000008;--bg2:#111118;--cyan:#00F5FF;--magenta:#FF0088;--purple:#7B2FFF;--blue:#0066FF;
+  --bg:#000008;--bg2:#111118;--cyan:#00F5FF;--magenta:var(--cyan);--purple:var(--cyan);--blue:#0066FF;
   --glass:rgba(3,3,10,0.85);--glass-border:rgba(0,245,255,0.18);
   --glow-cyan:0 0 20px rgba(0,245,255,0.5),0 0 60px rgba(0,245,255,0.2);
-  --glow-magenta:0 0 20px rgba(255,0,136,0.5),0 0 60px rgba(255,0,136,0.2);
-  --glow-purple:0 0 20px rgba(123,47,255,0.5),0 0 60px rgba(123,47,255,0.2);
+  --glow-magenta:0 0 20px rgba(0,245,255,0.5),0 0 60px rgba(0,245,255,0.2);
+  --glow-purple:0 0 20px rgba(0,245,255,0.5),0 0 60px rgba(0,245,255,0.2);
   --font-display:'Orbitron',sans-serif;--font-mono:'JetBrains Mono',monospace;
 }
 html{scroll-behavior:smooth}
@@ -50,8 +50,8 @@ main{flex:1;display:flex;flex-direction:column;align-items:center;justify-conten
 
 .panel{position:relative;background:var(--glass);backdrop-filter:blur(18px);border:1px solid var(--glass-border);border-radius:4px;padding:2.5rem 2rem;cursor:pointer;overflow:hidden;transition:transform 0.35s cubic-bezier(0.23,1,0.32,1),box-shadow 0.35s ease,border-color 0.35s ease;transform-style:preserve-3d;min-height:220px;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;gap:0.8rem}
 .panel[data-id="libro"]{--panel-color:var(--cyan);--panel-glow:var(--glow-cyan)}
-.panel[data-id="cv"]{--panel-color:var(--magenta);--panel-glow:var(--glow-magenta)}
-.panel[data-id="proyectos"]{--panel-color:var(--purple);--panel-glow:var(--glow-purple)}
+.panel[data-id="cv"]{--panel-color:var(--cyan);--panel-glow:var(--glow-cyan)}
+.panel[data-id="proyectos"]{--panel-color:var(--cyan);--panel-glow:var(--glow-cyan)}
 .panel[data-id="inversiones"]{--panel-color:#00BFFF;--panel-glow:0 0 20px rgba(0,191,255,0.5),0 0 60px rgba(0,191,255,0.2)}
 .panel::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse at 50% 0%,rgba(0,245,255,0.07) 0%,transparent 70%);opacity:0;transition:opacity 0.35s}
 .panel:hover{transform:translateY(-6px) scale(1.025) rotateX(2deg) rotateY(-1deg);border-color:var(--panel-color);box-shadow:var(--panel-glow),inset 0 0 40px rgba(0,0,0,0.4)}
@@ -77,8 +77,8 @@ main{flex:1;display:flex;flex-direction:column;align-items:center;justify-conten
 /* LIBRO */
 .libro-wrap{display:flex;flex-direction:column;align-items:center;gap:2.5rem;max-width:600px;width:100%;text-align:center;padding:2rem 0}
 .book-cover{width:260px;height:340px;background:linear-gradient(135deg,#0d0d2b 0%,#1a0033 50%,#0d0d2b 100%);border:1px solid rgba(0,245,255,0.3);border-radius:4px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:1rem;box-shadow:var(--glow-cyan),-8px 8px 30px rgba(0,0,0,0.6);position:relative;overflow:hidden;transition:transform 0.4s ease,box-shadow 0.4s ease}
-.book-cover:hover{transform:scale(1.04) rotateY(-4deg);box-shadow:var(--glow-magenta),-12px 12px 40px rgba(0,0,0,0.7)}
-.book-cover::before{content:'';position:absolute;left:0;top:0;bottom:0;width:6px;background:linear-gradient(180deg,var(--cyan),var(--purple),var(--magenta))}
+.book-cover:hover{transform:scale(1.04) rotateY(-4deg);box-shadow:var(--glow-cyan),-12px 12px 40px rgba(0,0,0,0.7)}
+.book-cover::before{content:'';position:absolute;left:0;top:0;bottom:0;width:6px;background:linear-gradient(180deg,var(--cyan),var(--cyan),var(--cyan))}
 .book-cover-icon{font-size:3.5rem}
 .book-cover-title{font-family:var(--font-display);font-size:0.85rem;font-weight:700;letter-spacing:0.15em;color:var(--cyan);text-transform:uppercase;padding:0 1.5rem;line-height:1.4}
 .book-cover-sub{font-size:0.62rem;color:rgba(0,245,255,0.5);letter-spacing:0.12em}
@@ -88,15 +88,15 @@ main{flex:1;display:flex;flex-direction:column;align-items:center;justify-conten
 .neon-btn::before{content:'';position:absolute;inset:0;background:rgba(255,255,255,0.15);transform:translateX(-100%);transition:transform 0.3s}
 .neon-btn:hover::before{transform:translateX(0)}
 .neon-btn:hover{box-shadow:var(--glow-cyan),0 0 40px rgba(0,245,255,0.4);transform:translateY(-2px)}
-.neon-btn.magenta{color:var(--magenta);background:transparent;border:1px solid var(--magenta);box-shadow:var(--glow-magenta)}
-.neon-btn.magenta:hover{background:rgba(255,0,136,0.15)}
-.neon-btn.purple{color:var(--purple);background:transparent;border:1px solid var(--purple);box-shadow:var(--glow-purple)}
-.neon-btn.purple:hover{background:rgba(123,47,255,0.15)}
+.neon-btn.magenta{color:var(--cyan);background:transparent;border:1px solid var(--cyan);box-shadow:var(--glow-cyan)}
+.neon-btn.magenta:hover{background:rgba(0,245,255,0.1)}
+.neon-btn.purple{color:var(--cyan);background:transparent;border:1px solid var(--cyan);box-shadow:var(--glow-cyan)}
+.neon-btn.purple:hover{background:rgba(0,245,255,0.12)}
 
 /* CV */
 .cv-wrap{display:grid;grid-template-columns:280px 1fr;gap:2rem;max-width:820px;width:100%;padding:1rem 0 2rem;align-items:start}
 .cv-left{background:var(--glass);backdrop-filter:blur(18px);border:1px solid var(--glass-border);border-radius:4px;padding:2rem 1.5rem;display:flex;flex-direction:column;align-items:center;gap:1.2rem;text-align:center}
-.avatar{width:110px;height:110px;border-radius:50%;background:linear-gradient(135deg,var(--purple),var(--cyan));display:flex;align-items:center;justify-content:center;font-size:3rem;border:2px solid rgba(0,245,255,0.4);box-shadow:var(--glow-cyan);overflow:hidden}
+.avatar{width:110px;height:110px;border-radius:50%;background:linear-gradient(135deg,var(--cyan),var(--cyan));display:flex;align-items:center;justify-content:center;font-size:3rem;border:2px solid rgba(0,245,255,0.4);box-shadow:var(--glow-cyan);overflow:hidden}
 .avatar img{width:100%;height:100%;object-fit:cover;border-radius:50%}
 .cv-name{font-family:var(--font-display);font-size:1rem;font-weight:700;color:var(--cyan);letter-spacing:0.12em;text-shadow:var(--glow-cyan)}
 .cv-role{font-size:0.7rem;color:rgba(180,185,195,0.6);letter-spacing:0.12em;text-transform:uppercase}
@@ -114,7 +114,7 @@ main{flex:1;display:flex;flex-direction:column;align-items:center;justify-conten
 /* PROYECTOS */
 .projects-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:1.2rem;width:100%;max-width:960px;padding-bottom:2rem}
 .project-card{background:var(--glass);backdrop-filter:blur(18px);border:1px solid var(--glass-border);border-radius:4px;padding:1.5rem;display:flex;flex-direction:column;gap:0.7rem;transition:transform 0.3s ease,border-color 0.3s,box-shadow 0.3s;position:relative;overflow:hidden}
-.project-card::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,var(--cyan),var(--purple),var(--magenta));opacity:0;transition:opacity 0.3s}
+.project-card::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,var(--cyan),var(--cyan),var(--cyan));opacity:0;transition:opacity 0.3s}
 .project-card:hover{transform:translateY(-4px);border-color:rgba(0,245,255,0.35);box-shadow:var(--glow-cyan)}
 .project-card:hover::before{opacity:1}
 .project-tag{font-size:0.6rem;letter-spacing:0.15em;color:var(--cyan);text-transform:uppercase}
@@ -125,14 +125,14 @@ main{flex:1;display:flex;flex-direction:column;align-items:center;justify-conten
 .project-steps li::before{content:"▸";position:absolute;left:0;color:var(--cyan);font-size:0.6rem}
 .project-langs{display:flex;gap:0.4rem;flex-wrap:wrap;margin-top:auto;padding-top:0.5rem;border-top:1px solid rgba(0,245,255,0.08)}
 .lang-dot{font-size:0.6rem;color:rgba(0,245,255,0.6);letter-spacing:0.08em;padding:0.2rem 0.5rem;border:1px solid rgba(0,245,255,0.2);border-radius:2px}
-.lang-dot.m{color:rgba(255,0,136,0.7);border-color:rgba(255,0,136,0.2)}
-.lang-dot.p{color:rgba(123,47,255,0.7);border-color:rgba(123,47,255,0.2)}
+.lang-dot.m{color:rgba(255,0,136,0.7);border-color:rgba(0,245,255,0.2)}
+.lang-dot.p{color:rgba(0,245,255,0.6);border-color:rgba(0,245,255,0.2)}
 .projects-cta{display:flex;justify-content:center;padding:1rem 0 2rem}
 
 /* INVERSIONES */
 .inv-wrap{display:flex;flex-direction:column;align-items:center;gap:2rem;max-width:760px;width:100%;padding:1rem 0 3rem;text-align:center}
 .portfolio-card{width:100%;max-width:720px;background:var(--glass);backdrop-filter:blur(20px);border:1px solid rgba(0,245,255,0.2);border-radius:6px;overflow:hidden;box-shadow:var(--glow-cyan);transition:transform 0.4s ease,box-shadow 0.4s;position:relative}
-.portfolio-card:hover{transform:scale(1.02);box-shadow:var(--glow-cyan),0 0 80px rgba(123,47,255,0.3)}
+.portfolio-card:hover{transform:scale(1.02);box-shadow:var(--glow-cyan),0 0 80px rgba(0,245,255,0.3)}
 .portfolio-card::before{content:'';position:absolute;inset:0;background:linear-gradient(135deg,rgba(0,245,255,0.03) 0%,transparent 60%);pointer-events:none;z-index:1}
 .portfolio-img{width:100%;display:block;object-fit:contain}
 .portfolio-meta{padding:1.2rem 1.5rem;display:flex;justify-content:space-between;align-items:center}
@@ -147,7 +147,7 @@ footer{position:relative;z-index:10;padding:1.5rem 2.5rem;border-top:1px solid r
 .footer-copy{font-size:0.6rem;color:rgba(224,232,255,0.2);letter-spacing:0.1em}
 .footer-copy span{color:var(--cyan)}
 .neon-divider{width:100%;max-width:960px;height:1px;background:linear-gradient(90deg,transparent,var(--cyan),transparent);margin:0.5rem 0 1.5rem;opacity:0.4}
-.loading-bar{position:fixed;top:0;left:0;height:2px;background:linear-gradient(90deg,var(--cyan),var(--magenta),var(--purple));z-index:9999;transition:width 0.3s ease;box-shadow:0 0 8px var(--cyan)}
+.loading-bar{position:fixed;top:0;left:0;height:2px;background:linear-gradient(90deg,var(--cyan),var(--cyan),var(--cyan));z-index:9999;transition:width 0.3s ease;box-shadow:0 0 8px var(--cyan)}
 
 @media(max-width:700px){
   .panel-grid{grid-template-columns:1fr;gap:1rem}
@@ -176,7 +176,7 @@ footer{position:relative;z-index:10;padding:1.5rem 2.5rem;border-top:1px solid r
 #cv-img-wrap.cv-visible { display: block !important; animation: fadeIn 0.4s ease; }
 
 /* Condiciones card */
-.condiciones-card { width:100%; max-width:720px; background:var(--glass); backdrop-filter:blur(18px); border:1px solid rgba(123,47,255,0.3); border-radius:4px; overflow:hidden; }
+.condiciones-card { width:100%; max-width:720px; background:var(--glass); backdrop-filter:blur(18px); border:1px solid rgba(0,245,255,0.3); border-radius:4px; overflow:hidden; }
 .condiciones-toggle { width:100%; background:transparent; border:none; cursor:pointer; padding:1.1rem 1.5rem; display:flex; align-items:center; gap:0.8rem; transition:background 0.2s; }
 .condiciones-toggle:hover { background:rgba(0,245,255,0.05); }
 #cond-arrow { margin-left:auto; transition:transform 0.3s; color:rgba(0,245,255,0.4); }
@@ -190,9 +190,9 @@ footer{position:relative;z-index:10;padding:1.5rem 2.5rem;border-top:1px solid r
 .cond-label { font-size:0.7rem; color:rgba(224,232,255,0.7); letter-spacing:0.05em; margin-bottom:0.2rem; }
 .cond-value { font-family:var(--font-display); font-size:0.85rem; font-weight:700; color:var(--cyan); text-shadow:var(--glow-cyan); }
 .cond-note { font-size:0.62rem; color:rgba(224,232,255,0.35); margin-top:0.2rem; }
-.cond-divider { height:1px; background:linear-gradient(90deg,transparent,rgba(123,47,255,0.4),transparent); margin:1.2rem 0; }
+.cond-divider { height:1px; background:linear-gradient(90deg,transparent,rgba(0,245,255,0.3),transparent); margin:1.2rem 0; }
 .cond-summary { display:grid; grid-template-columns:1fr 1fr; gap:1.2rem; }
-.cond-summary-title { font-family:var(--font-display); font-size:0.65rem; letter-spacing:0.12em; color:var(--purple); text-transform:uppercase; margin-bottom:0.6rem; }
+.cond-summary-title { font-family:var(--font-display); font-size:0.65rem; letter-spacing:0.12em; color:var(--cyan); text-transform:uppercase; margin-bottom:0.6rem; }
 .cond-list { list-style:none; display:flex; flex-direction:column; gap:0.35rem; }
 .cond-list li { font-size:0.68rem; color:rgba(224,232,255,0.55); line-height:1.5; padding-left:1rem; position:relative; }
 .cond-list li::before { content:"▸"; position:absolute; left:0; color:var(--cyan); }
@@ -212,17 +212,17 @@ footer{position:relative;z-index:10;padding:1.5rem 2.5rem;border-top:1px solid r
 /* empresa cards */
 .empresa-card{background:rgba(0,0,0,0.35);border-radius:4px;overflow:hidden;border:1px solid rgba(255,255,255,0.06);transition:border-color 0.3s,box-shadow 0.3s}
 .empresa-card[data-color="cyan"]:hover{border-color:rgba(0,245,255,0.35);box-shadow:0 0 20px rgba(0,245,255,0.1)}
-.empresa-card[data-color="magenta"]:hover{border-color:rgba(255,0,136,0.35);box-shadow:0 0 20px rgba(255,0,136,0.1)}
-.empresa-card[data-color="purple"]:hover{border-color:rgba(123,47,255,0.35);box-shadow:0 0 20px rgba(123,47,255,0.1)}
+.empresa-card[data-color="magenta"]:hover{border-color:rgba(0,245,255,0.3);box-shadow:0 0 20px rgba(0,245,255,0.08)}
+.empresa-card[data-color="purple"]:hover{border-color:rgba(0,245,255,0.3);box-shadow:0 0 20px rgba(0,245,255,0.08)}
 .empresa-card[data-color="orange"]:hover{border-color:rgba(255,140,0,0.35);box-shadow:0 0 20px rgba(255,140,0,0.1)}
 .empresa-header{display:flex;align-items:center;gap:1rem;padding:0.9rem 1.2rem;border-bottom:1px solid rgba(255,255,255,0.05);animation:slideInLeft 0.5s ease both}
 .empresa-nombre{font-family:var(--font-display);font-size:0.78rem;font-weight:700;letter-spacing:0.1em;color:#e0e8ff;display:flex;align-items:center;gap:0.6rem;flex-wrap:wrap}
 .empresa-star{font-size:0.62rem;color:rgba(0,245,255,0.6);font-weight:400;letter-spacing:0.05em;font-family:var(--font-mono)}
 .empresa-badge{font-family:var(--font-display);font-size:0.62rem;font-weight:700;letter-spacing:0.15em;padding:0.3rem 0.7rem;border-radius:2px;white-space:nowrap;animation:glowPulse 3s ease-in-out infinite}
 .emp-cyan{color:var(--bg);background:var(--cyan);box-shadow:0 0 10px rgba(0,245,255,0.5)}
-.emp-magenta{color:white;background:var(--magenta);box-shadow:0 0 10px rgba(255,0,136,0.5)}
-.emp-purple{color:white;background:var(--purple);box-shadow:0 0 10px rgba(123,47,255,0.5)}
-.emp-orange{color:var(--bg);background:#FF8C00;box-shadow:0 0 10px rgba(255,140,0,0.5)}
+.emp-cyan{color:white;background:var(--cyan);box-shadow:0 0 10px rgba(0,245,255,0.5)}
+.emp-cyan{color:white;background:var(--cyan);box-shadow:0 0 10px rgba(0,245,255,0.5)}
+.emp-cyan{color:var(--bg);background:#FF8C00;box-shadow:0 0 10px rgba(255,140,0,0.5)}
 .empresa-body{padding:1rem 1.2rem;display:flex;flex-direction:column;gap:0.6rem}
 .empresa-body p{font-size:0.72rem;color:rgba(224,232,255,0.6);line-height:1.7}
 @keyframes slideInLeft{from{opacity:0;transform:translateX(-16px)}to{opacity:1;transform:translateX(0)}}
@@ -262,7 +262,7 @@ footer{position:relative;z-index:10;padding:1.5rem 2.5rem;border-top:1px solid r
 .mt-price{color:rgba(224,232,255,0.5);font-size:0.7rem}
 .mt-buy{color:var(--cyan);font-weight:600;font-size:0.72rem}
 .mt-badge{font-size:0.58rem;padding:0.2rem 0.6rem;border-radius:20px;font-family:var(--font-display);letter-spacing:0.08em;font-weight:600}
-.mt-ok{background:rgba(0,200,100,0.12);color:#00C864;border:1px solid rgba(0,200,100,0.3)}
+.mt-ok{background:rgba(0,200,100,0.12);color:var(--cyan);border:1px solid rgba(0,200,100,0.3)}
 .mt-high{background:rgba(255,100,0,0.12);color:#FF6400;border:1px solid rgba(255,100,0,0.3)}
 .momento-disclaimer{font-size:0.65rem;color:rgba(224,232,255,0.35);line-height:1.6;border:1px solid rgba(255,200,0,0.12);padding:0.8rem;border-radius:3px;background:rgba(255,200,0,0.03)}
 
@@ -271,7 +271,7 @@ footer{position:relative;z-index:10;padding:1.5rem 2.5rem;border-top:1px solid r
 .lab-icon-btn:hover{transform:scale(1.25) rotate(-8deg);filter:drop-shadow(0 0 10px rgba(0,245,255,0.9))}
 .lab-modal-overlay{position:fixed;inset:0;background:rgba(0,0,0,0.85);backdrop-filter:blur(8px);z-index:2000;display:none;align-items:center;justify-content:center;padding:1.5rem;opacity:0;transition:opacity 0.3s ease}
 .lab-modal-overlay.open{display:flex;opacity:1}
-.lab-modal{background:rgba(8,8,20,0.98);border:1px solid rgba(0,245,255,0.25);border-radius:6px;max-width:680px;width:100%;max-height:85vh;overflow-y:auto;box-shadow:0 0 60px rgba(0,245,255,0.15),0 0 120px rgba(123,47,255,0.1);transform:translateY(24px) scale(0.97);transition:transform 0.35s cubic-bezier(0.23,1,0.32,1);scrollbar-width:thin;scrollbar-color:rgba(0,245,255,0.2) transparent}
+.lab-modal{background:rgba(8,8,20,0.98);border:1px solid rgba(0,245,255,0.25);border-radius:6px;max-width:680px;width:100%;max-height:85vh;overflow-y:auto;box-shadow:0 0 60px rgba(0,245,255,0.15),0 0 120px rgba(0,245,255,0.08);transform:translateY(24px) scale(0.97);transition:transform 0.35s cubic-bezier(0.23,1,0.32,1);scrollbar-width:thin;scrollbar-color:rgba(0,245,255,0.2) transparent}
 .lab-modal-overlay.open .lab-modal{transform:translateY(0) scale(1)}
 .lab-modal-header{display:flex;align-items:flex-start;justify-content:space-between;padding:1.4rem 1.5rem 1rem;border-bottom:1px solid rgba(0,245,255,0.1);position:sticky;top:0;background:rgba(8,8,20,0.98);z-index:1}
 .lab-modal-tag{font-size:0.58rem;letter-spacing:0.18em;color:rgba(0,245,255,0.5);text-transform:uppercase;font-family:var(--font-mono);margin-bottom:0.35rem}
@@ -314,7 +314,7 @@ footer{position:relative;z-index:10;padding:1.5rem 2.5rem;border-top:1px solid r
 .cartera-unavailable-title{font-family:var(--font-display);font-size:1rem;font-weight:700;letter-spacing:0.15em;color:rgba(224,232,255,0.35);text-transform:uppercase}
 .cartera-unavailable-sub{font-size:0.72rem;color:rgba(0,245,255,0.3);letter-spacing:0.2em;text-transform:uppercase;border:1px solid rgba(0,245,255,0.1);padding:0.4rem 1.2rem;border-radius:2px}
 
-.project-steps-purple li::before{color:var(--purple) !important}
+.project-steps-purple li::before{color:var(--cyan) !important}
 .project-steps-purple li{color:rgba(180,150,255,0.65)}
 </style>
 </head>
@@ -420,14 +420,14 @@ footer{position:relative;z-index:10;padding:1.5rem 2.5rem;border-top:1px solid r
                 <span class="skill-tag">AWS</span>
               </div>
             </div>
-            <a href="https://drive.google.com/file/d/1YWgNSuWqMNX6aNV4WZpDYvetwYfy4g27/view?usp=drive_link" target="_blank" class="neon-btn" style="font-size:0.65rem;padding:0.7rem 1.4rem;width:100%;justify-content:center;background:transparent;color:rgba(240,242,248,0.9);border:1px solid rgba(240,242,248,0.3);box-shadow:none">
+            <a href="https://drive.google.com/file/d/1YWgNSuWqMNX6aNV4WZpDYvetwYfy4g27/view?usp=drive_link" target="_blank" class="neon-btn" style="font-size:0.65rem;padding:0.7rem 1.4rem;width:100%;justify-content:center;background:var(--cyan);color:#0a0a0a;border:none;box-shadow:var(--glow-cyan)">
               ⬇ Descargar CV
             </a>
-            <button onclick="toggleCV()" id="ver-cv-btn" class="neon-btn" style="font-size:0.65rem;padding:0.7rem 1.4rem;width:100%;justify-content:center;margin-top:0.5rem;background:transparent;color:rgba(240,242,248,0.9);border:1px solid rgba(240,242,248,0.3);box-shadow:none;cursor:pointer">
+            <button onclick="toggleCV()" id="ver-cv-btn" class="neon-btn" style="font-size:0.65rem;padding:0.7rem 1.4rem;width:100%;justify-content:center;margin-top:0.5rem;background:var(--cyan);color:#0a0a0a;border:none;box-shadow:var(--glow-cyan);cursor:pointer">
               Ver CV
             </button>
             <a href="https://drive.google.com/drive/folders/1kWNbunofocEwYK3H8kAMUxbUDtSZRlvy?usp=drive_link" target="_blank"
-               style="font-size:0.65rem;padding:0.7rem 1.4rem;width:100%;justify-content:center;margin-top:0.5rem;display:flex;align-items:center;gap:0.5rem;font-family:var(--font-display);font-weight:600;letter-spacing:0.15em;text-transform:uppercase;text-decoration:none;color:rgba(240,242,248,0.9);background:transparent;border:1px solid rgba(240,242,248,0.3);border-radius:2px;box-shadow:none;transition:all 0.25s"
+               style="font-size:0.65rem;padding:0.7rem 1.4rem;width:100%;justify-content:center;margin-top:0.5rem;display:flex;align-items:center;gap:0.5rem;font-family:var(--font-display);font-weight:600;letter-spacing:0.15em;text-transform:uppercase;text-decoration:none;color:#0a0a0a;background:var(--cyan);border:none;border-radius:2px;box-shadow:var(--glow-cyan);transition:all 0.25s"
                onmouseover="this.style.background='rgba(240,242,248,0.06)'"
                onmouseout="this.style.background='transparent'">
               Ver Certificaciones
@@ -489,7 +489,7 @@ footer{position:relative;z-index:10;padding:1.5rem 2.5rem;border-top:1px solid r
           </div>
           <div class="project-card">
             <div class="project-tag" style="display:flex;align-items:center;justify-content:space-between">🟦 SIEM · Splunk <button class="lab-icon-btn" onclick="openLab('siem')" title="Ver detalles del laboratorio">🔍</button></div>
-            <div class="project-name" style="color:rgba(240,242,248,0.95);text-shadow:none">Casos de Uso SIEM — Splunk</div>
+            <div class="project-name" style="color:rgba(240,242,248,0.95);text-shadow:none">Casos de Usos SIEM — Splunk</div>
             <div class="project-desc">Simulación y análisis de búsquedas a través de consultas SPL para detección de ataques en entornos empresariales.</div>
             <ul class="project-steps">
               <li>Detección de ataques de fuerza bruta con umbrales SPL</li>
@@ -577,16 +577,16 @@ footer{position:relative;z-index:10;padding:1.5rem 2.5rem;border-top:1px solid r
 
       <!-- SECCIÓN 2: REDES -->
       <div class="proj-section">
-        <div class="proj-section-header" style="--sec-color:var(--purple)">
+        <div class="proj-section-header" style="--sec-color:var(--cyan)">
           <span class="proj-section-icon">🌐</span>
           <div>
-            <div class="proj-section-title" style="color:var(--purple);text-shadow:var(--glow-purple)">Proyectos de Redes</div>
+            <div class="proj-section-title" style="color:var(--cyan);text-shadow:var(--glow-cyan)">Proyectos de Redes</div>
             <div class="proj-section-sub">Networking · Infraestructura · Protocolos · Capas</div>
           </div>
         </div>
         <div class="projects-grid">
           <div class="project-card">
-            <div class="project-tag" style="color:var(--purple);text-shadow:var(--glow-purple)">🌐 Redes · Windows Security</div>
+            <div class="project-tag" style="color:var(--cyan);text-shadow:var(--glow-cyan)">🌐 Redes · Windows Security</div>
             <div class="project-name" style="color:rgba(240,242,248,0.95);text-shadow:none">Windows Defender Firewall con Seguridad Avanzada</div>
             <div class="project-desc">Configuración de Windows Defender Firewall con seguridad avanzada en el sistema operativo, mediante la creación de reglas que permitan mitigar riesgos y bloqueo de tráfico, puertos, entendiendo su función y protócolo correspondiente.</div>
             <ul class="project-steps">
@@ -603,7 +603,7 @@ footer{position:relative;z-index:10;padding:1.5rem 2.5rem;border-top:1px solid r
             </div>
             <div style="margin-top:0.8rem">
               <a href="https://github.com/santiireyes-30/Windows-Defender-Firewall" target="_blank"
-                 class="neon-btn" style="font-size:0.62rem;padding:0.6rem 1rem;display:inline-flex;background:var(--purple);color:#000;box-shadow:var(--glow-purple)">
+                 class="neon-btn" style="font-size:0.62rem;padding:0.6rem 1rem;display:inline-flex;background:var(--cyan);color:#000;box-shadow:var(--glow-cyan)">
                 Ver Más Sobre Este Proyecto
               </a>
             </div>
@@ -613,32 +613,32 @@ footer{position:relative;z-index:10;padding:1.5rem 2.5rem;border-top:1px solid r
 
       <!-- SECCIÓN 3: AUTOMATIZACIONES -->
       <div class="proj-section">
-        <div class="proj-section-header" style="--sec-color:#00C864">
+        <div class="proj-section-header" style="--sec-color:var(--cyan)">
           <span class="proj-section-icon">⚙️</span>
           <div>
-            <div class="proj-section-title" style="color:#00C864;text-shadow:0 0 20px rgba(0,200,100,0.4)">Automatizaciones</div>
+            <div class="proj-section-title" style="color:var(--cyan);text-shadow:0 0 20px rgba(0,245,255,0.4)">Automatizaciones</div>
             <div class="proj-section-sub">n8n</div>
           </div>
         </div>
-        <div class="proj-unavailable" style="border-color:rgba(0,200,100,0.2)">
+        <div class="proj-unavailable" style="border-color:rgba(0,245,255,0.2)">
           <span style="font-size:2rem">🔄</span>
-          <div style="font-family:var(--font-display);font-size:0.75rem;color:#00C864;letter-spacing:0.2em;text-transform:uppercase;opacity:0.7">Disponible Pronto</div>
+          <div style="font-family:var(--font-display);font-size:0.75rem;color:var(--cyan);letter-spacing:0.2em;text-transform:uppercase;opacity:0.7">Disponible Pronto</div>
           <div style="font-size:0.7rem;color:rgba(224,232,255,0.3);letter-spacing:0.08em">En desarrollo</div>
         </div>
       </div>
 
       <!-- SECCIÓN 4: SEGURIDAD EN NUBE -->
       <div class="proj-section">
-        <div class="proj-section-header" style="--sec-color:#FF9900">
+        <div class="proj-section-header" style="--sec-color:var(--cyan)">
           <span class="proj-section-icon">☁️</span>
           <div>
-            <div class="proj-section-title" style="color:#FF9900;text-shadow:0 0 20px rgba(255,153,0,0.4)">Proyectos de Seguridad en Nube</div>
+            <div class="proj-section-title" style="color:var(--cyan);text-shadow:0 0 20px rgba(0,245,255,0.4)">Proyectos de Seguridad en Nube</div>
             <div class="proj-section-sub">AWS · Terraform · Kubernetes</div>
           </div>
         </div>
-        <div class="proj-unavailable" style="border-color:rgba(255,153,0,0.15)">
+        <div class="proj-unavailable" style="border-color:rgba(0,245,255,0.1)">
           <span style="font-size:2rem">🔒</span>
-          <div style="font-family:var(--font-display);font-size:0.75rem;color:#FF9900;letter-spacing:0.2em;text-transform:uppercase;opacity:0.7">Aún No Disponible</div>
+          <div style="font-family:var(--font-display);font-size:0.75rem;color:var(--cyan);letter-spacing:0.2em;text-transform:uppercase;opacity:0.7">Aún No Disponible</div>
           <div style="font-size:0.7rem;color:rgba(224,232,255,0.3);letter-spacing:0.08em">Próximamente disponible</div>
         </div>
       </div>
@@ -646,16 +646,16 @@ footer{position:relative;z-index:10;padding:1.5rem 2.5rem;border-top:1px solid r
       <!-- SECCIÓN 5: PROYECTOS PERSONAL DEV -->
       <div style="height:1.5rem"></div>
       <div class="proj-section">
-        <div class="proj-section-header" style="--sec-color:var(--magenta)">
+        <div class="proj-section-header" style="--sec-color:var(--cyan)">
           <span class="proj-section-icon">💡</span>
           <div>
-            <div class="proj-section-title" style="color:var(--magenta);text-shadow:var(--glow-magenta)">Proyectos Personal (DEV)</div>
+            <div class="proj-section-title" style="color:var(--cyan);text-shadow:var(--glow-cyan)">Proyectos Personal (DEV)</div>
             <div class="proj-section-sub">Certificaciones · Ciberseguridad · Recursos</div>
           </div>
         </div>
         <div class="projects-grid">
-          <div class="project-card" style="border-color:rgba(255,0,136,0.15)">
-            <div class="project-tag" style="color:var(--magenta)">🏆 Certificación · CompTIA</div>
+          <div class="project-card" style="border-color:rgba(0,245,255,0.1)">
+            <div class="project-tag" style="color:var(--cyan)">🏆 Certificación · CompTIA</div>
             <div class="project-name" style="color:rgba(240,242,248,0.95);text-shadow:none">Let's Approve CompTIA Security+ SY0-701</div>
             <div class="project-desc">CompTIA Security+ es una de las certificaciones más valoradas y reconocidas a nivel mundial en ciberseguridad defensiva. Validada por el DoD de los EE.UU., es el punto de entrada estándar para roles en SOC, administración de seguridad y análisis de amenazas.</div>
             <div style="margin:0.6rem 0 0.4rem">
@@ -693,7 +693,7 @@ footer{position:relative;z-index:10;padding:1.5rem 2.5rem;border-top:1px solid r
             <div style="margin-top:0.8rem">
               <a href="https://github.com/santiireyes-30/Let-s-approve-Comptia-Security-SYO-701-/tree/main"
                  target="_blank" class="neon-btn"
-                 style="font-size:0.65rem;padding:0.7rem 1.2rem;display:inline-flex;background:var(--magenta);color:#0a0a0a;border:none;box-shadow:var(--glow-magenta)">
+                 style="font-size:0.65rem;padding:0.7rem 1.2rem;display:inline-flex;background:var(--cyan);color:#0a0a0a;border:none;box-shadow:var(--glow-cyan)">
                 Quiero Saber Más Sobre CompTIA Security+
               </a>
             </div>
@@ -833,7 +833,7 @@ footer{position:relative;z-index:10;padding:1.5rem 2.5rem;border-top:1px solid r
 
             <div class="empresa-card" data-color="orange">
               <div class="empresa-header">
-                <div class="empresa-badge emp-orange">ORCL &middot; #3</div>
+                <div class="empresa-badge emp-cyan">ORCL &middot; #3</div>
                 <div class="empresa-nombre">Oracle Corporation</div>
               </div>
               <div class="empresa-body">
@@ -846,7 +846,7 @@ footer{position:relative;z-index:10;padding:1.5rem 2.5rem;border-top:1px solid r
 
             <div class="empresa-card" data-color="purple">
               <div class="empresa-header">
-                <div class="empresa-badge emp-purple">NVDA &middot; #4</div>
+                <div class="empresa-badge emp-cyan">NVDA &middot; #4</div>
                 <div class="empresa-nombre">NVIDIA</div>
               </div>
               <div class="empresa-body">
@@ -858,7 +858,7 @@ footer{position:relative;z-index:10;padding:1.5rem 2.5rem;border-top:1px solid r
 
             <div class="empresa-card" data-color="magenta">
               <div class="empresa-header">
-                <div class="empresa-badge emp-magenta">CELH &middot; #5</div>
+                <div class="empresa-badge emp-cyan">CELH &middot; #5</div>
                 <div class="empresa-nombre">Celsius Holdings</div>
               </div>
               <div class="empresa-body">
@@ -870,7 +870,7 @@ footer{position:relative;z-index:10;padding:1.5rem 2.5rem;border-top:1px solid r
 
             <div class="empresa-card" data-color="orange">
               <div class="empresa-header">
-                <div class="empresa-badge emp-orange">RDDT &middot; #6</div>
+                <div class="empresa-badge emp-cyan">RDDT &middot; #6</div>
                 <div class="empresa-nombre">Reddit <span class="empresa-star" style="color:rgba(255,140,0,0.8)">Mayor potencial a largo plazo</span></div>
               </div>
               <div class="empresa-body">
@@ -1025,7 +1025,7 @@ const pCanvas=document.getElementById('particles'),pCtx=pCanvas.getContext('2d')
 let pw,ph;
 function resizeP(){pw=pCanvas.width=window.innerWidth;ph=pCanvas.height=window.innerHeight}
 resizeP();window.addEventListener('resize',resizeP);
-const colors=['rgba(0,245,255,','rgba(255,0,136,','rgba(123,47,255,'];
+const colors=['rgba(0,245,255,','rgba(0,245,255,','rgba(0,245,255,'];
 const pts=Array.from({length:55},()=>({x:Math.random()*window.innerWidth,y:Math.random()*window.innerHeight,r:Math.random()*1.5+0.3,vx:(Math.random()-0.5)*0.35,vy:(Math.random()-0.5)*0.35,c:colors[Math.floor(Math.random()*3)],a:Math.random()*0.5+0.15}));
 (function animP(){pCtx.clearRect(0,0,pw,ph);pts.forEach(p=>{p.x+=p.vx;p.y+=p.vy;if(p.x<0)p.x=pw;if(p.x>pw)p.x=0;if(p.y<0)p.y=ph;if(p.y>ph)p.y=0;pCtx.beginPath();pCtx.arc(p.x,p.y,p.r,0,Math.PI*2);pCtx.fillStyle=p.c+p.a+')';pCtx.fill();pCtx.beginPath();pCtx.arc(p.x,p.y,p.r*3,0,Math.PI*2);pCtx.fillStyle=p.c+(p.a*0.1)+')';pCtx.fill()});requestAnimationFrame(animP)})();
 
